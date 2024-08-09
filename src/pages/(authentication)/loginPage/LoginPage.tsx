@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useLoginMutation } from "@/redux/authentication/authApi";
+import Cookies from "js-cookie";
 import { Link, useNavigate } from "react-router-dom";
 
 function LoginPage() {
@@ -16,7 +17,7 @@ function LoginPage() {
 
     try {
       const result = await login({ email, password }).unwrap();
-      console.log("Login successful:", result);
+      Cookies.set("token", result.key);
       navigate("/dashboard/institution-create");
     } catch (error) {
       console.error("Failed to login:", error);
@@ -43,7 +44,10 @@ function LoginPage() {
       </form>
       <p>
         veya{" "}
-        <Link className="text-blue-500 underline" to={""}>
+        <Link
+          className="text-blue-500 underline"
+          to={"/dashboard/institution-create"}
+        >
           Şifremi Unuttum!
         </Link>
       </p>

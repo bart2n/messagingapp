@@ -1,8 +1,15 @@
 import { Outlet } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { Input } from "@/components/ui/input";
+import { isUserAuthenticate } from "@/lib/utils";
+import { useEffect } from "react";
 
-function UserLoginLayout() {
+function UserLoggedInLayout() {
+  useEffect(() => {
+    if (!isUserAuthenticate()) {
+      window.location.href = "/login";
+    }
+  }, []);
   return (
     <div>
       <nav
@@ -30,4 +37,4 @@ function UserLoginLayout() {
   );
 }
 
-export default UserLoginLayout;
+export default UserLoggedInLayout;

@@ -2,8 +2,15 @@ import { Outlet } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { isUserAuthenticate } from "@/lib/utils";
+import { useEffect } from "react";
 
 function NoUserLayout() {
+  useEffect(() => {
+    if (isUserAuthenticate()) {
+      window.location.href = "/dashboard";
+    }
+  }, []);
   return (
     <div>
       <nav
