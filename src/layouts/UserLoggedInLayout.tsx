@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { Input } from "@/components/ui/input";
-import { isUserAuthenticate } from "@/lib/utils";
+import { isUserAuthenticate, signOut } from "@/lib/utils";
 import { useEffect } from "react";
 
 function UserLoggedInLayout() {
@@ -10,6 +10,7 @@ function UserLoggedInLayout() {
       window.location.href = "/login";
     }
   }, []);
+
   return (
     <div>
       <nav
@@ -28,9 +29,12 @@ function UserLoggedInLayout() {
         <div className="gap-4 flex">
           <Link to="/dashboard/institution-create">Eğitmen Olun</Link>
           <Link to="/dashboard/institution-main">Profil</Link>
+          <p className="cursor-pointer" onClick={() => signOut()}>
+            Çıkış Yap
+          </p>
         </div>
       </nav>
-      <main className="h-full ">
+      <main className="h-full  pt-20">
         <Outlet />
       </main>
     </div>

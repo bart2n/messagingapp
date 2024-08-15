@@ -9,6 +9,7 @@ import MainDashboard from "./pages/(institutionDashboard)/mainDashboard/MainDash
 import CreateInstitution from "./pages/(institutionDashboard)/createInstitution/CreateInstitution";
 import InstitutionDetail from "./pages/(institutionDashboard)/institututionDetail/InstitutionDetail";
 import ChatComponent from "./pages/ChatComponent";
+import CreateCourse from "./pages/(institutionDashboard)/institututionDetail/forms/CreateCourse";
 function App() {
   return (
     <Router>
@@ -29,8 +30,12 @@ function App() {
             element={<CreateInstitution />}
           />
           <Route
-            path="/dashboard/institution-detail"
+            path="/dashboard/institution-detail/:id"
             element={<InstitutionDetail />}
+          />
+          <Route
+            path="/dashboard/institution-detail/:id/create-course"
+            element={<CreateCourse />}
           />
           <Route path="/dashboard/chat/:roomname" element={<ChatComponent />} />
 

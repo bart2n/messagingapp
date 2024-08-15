@@ -1,5 +1,4 @@
 import { type ClassValue, clsx } from "clsx";
-import { useNavigate } from "react-router-dom";
 import { twMerge } from "tailwind-merge";
 import Cookies from "js-cookie";
 
@@ -8,16 +7,17 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function getSessionToken() {
-  return localStorage.getItem("sessionToken");
+  const token = Cookies.get("access_token");
+  return token ? token : "";
 }
 
 export function signOut() {
-  const navigate = useNavigate();
-  localStorage.removeItem("sessionToken");
-  navigate("/login");
+  Cookies.remove("access_token");
+  window.location.href = "/login";
 }
 
 export function isUserAuthenticate() {
   const token = Cookies.get("access_token");
   return token ? true : false;
 }
+

@@ -6,9 +6,9 @@ import { Link } from "react-router-dom";
 function RegisterPage() {
   const [register, { isLoading, isError, isSuccess }] = useRegisterMutation();
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
-    
+
     const formData = new FormData(e.target); // e.target is the form element
 
     await register(formData);
