@@ -18,6 +18,6 @@ export function signOut() {
 }
 
 export function isUserAuthenticate() {
-  const token = Cookies.get("token");
+  const token = Cookies.get("access_token");
   return token ? true : false;
 }

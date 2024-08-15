@@ -8,6 +8,7 @@ import UserLoggedInLayout from "./layouts/UserLoggedInLayout";
 import MainDashboard from "./pages/(institutionDashboard)/mainDashboard/MainDashboard";
 import CreateInstitution from "./pages/(institutionDashboard)/createInstitution/CreateInstitution";
 import InstitutionDetail from "./pages/(institutionDashboard)/institututionDetail/InstitutionDetail";
+import ChatComponent from "./pages/ChatComponent";
 function App() {
   return (
     <Router>
@@ -31,6 +32,10 @@ function App() {
             path="/dashboard/institution-detail"
             element={<InstitutionDetail />}
           />
+          <Route path="/dashboard/chat/:roomname" element={<ChatComponent />} />
+
+
+
         </Route>
       </Routes>
     </Router>

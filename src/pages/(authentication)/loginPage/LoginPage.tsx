@@ -5,7 +5,7 @@ import Cookies from "js-cookie";
 import { Link, useNavigate } from "react-router-dom";
 
 function LoginPage() {
-  const [login, { isLoading, isError, isSuccess, data }] = useLoginMutation();
+  const [login, { isLoading, isError }] = useLoginMutation();
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
@@ -17,7 +17,12 @@ function LoginPage() {
 
     try {
       const result = await login({ email, password }).unwrap();
-      Cookies.set("token", result.key);
+
+      // Access ve refresh token'ları cookie'ye kaydetme
+      Cookies.set("access_token", result.access, { path: "/" });
+      Cookies.set("refresh_token", result.refresh, { path: "/" });
+
+      // Başarılı girişten sonra yönlendirme
       navigate("/dashboard/institution-create");
     } catch (error) {
       console.error("Failed to login:", error);
@@ -30,7 +35,7 @@ function LoginPage() {
         onSubmit={handleSubmit}
         className="text-center flex flex-col gap-4 md:w-1/3 w-full"
       >
-        <h1 className="text-3xl">Carepduya giriş yapmak için oturum açın</h1>
+        <h1 className="text-3xl">Carpedu'ya giriş yapmak için oturum açın</h1>
 
         <Input type="email" name="email" placeholder="Email" />
         <Input type="password" name="password" placeholder="Password" />
