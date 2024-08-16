@@ -27,7 +27,7 @@ function UserLoggedInLayout() {
           className="w-1/3 focus-visible:ring-1  border-2"
         />
         <div className="gap-4 flex">
-          <Link to="/dashboard/institution-create">Eğitmen Olun</Link>
+          <Link to="/dashboard/institution-main">Eğitmen Olun</Link>
           <Link to="/dashboard/institution-main">Profil</Link>
           <p className="cursor-pointer" onClick={() => signOut()}>
             Çıkış Yap
