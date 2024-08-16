@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Input } from "@/components/ui/input";
 import { isUserAuthenticate, signOut } from "@/lib/utils";
 import { useEffect } from "react";
+import UserSearchBar from "./UserSearchBar";
 
 function UserLoggedInLayout() {
   useEffect(() => {
@@ -21,11 +22,8 @@ function UserLoggedInLayout() {
         <Link to="/">
           <h1 className="text-2xl">Carpedu</h1>
         </Link>
-        <Input
-          type="search"
-          placeholder="Search"
-          className="w-1/3 focus-visible:ring-1  border-2"
-        />
+        <UserSearchBar className="w-1/3 focus-visible:ring-1  border-2 relative z-50 overflow-visible" />
+       
         <div className="gap-4 flex">
           <Link to="/dashboard/institution-main">Eğitmen Olun</Link>
           <Link to="/dashboard/institution-main">Profil</Link>

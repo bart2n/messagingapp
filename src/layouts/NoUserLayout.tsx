@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { isUserAuthenticate } from "@/lib/utils";
 import { useEffect } from "react";
-
+import UserSearchBar from "./UserSearchBar";
 function NoUserLayout() {
   useEffect(() => {
     if (isUserAuthenticate()) {
@@ -21,11 +21,12 @@ function NoUserLayout() {
         <Link to="/">
           <h1 className="text-2xl">Carpedu</h1>
         </Link>
-        <Input
+        {/*   <Input
           type="search"
           placeholder="Search"
           className="w-1/3 focus-visible:ring-1  border-2"
-        />
+        /> */}
+        <UserSearchBar className="w-1/3 focus-visible:ring-1  border-2 relative z-50 overflow-visible" />
         <div className="gap-4 flex">
           <Link to="/login">
             <Button variant="outline">Login</Button>
