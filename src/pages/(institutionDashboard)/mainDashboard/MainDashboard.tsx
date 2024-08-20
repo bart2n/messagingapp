@@ -4,9 +4,9 @@ import {
   CardFooter,
   CardHeader,
 } from "@/components/ui/card";
-import InstitutionCardContainer from "./containers/InstitutionCardContainer";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
+import InstitutionCard from "./components/InstitutionCard";
 
 function MainDashboard() {
   const navigate = useNavigate();
@@ -26,7 +26,7 @@ function MainDashboard() {
           </Button>
         </CardHeader>
         <CardContent>
-          <InstitutionCardContainer />
+          <InstitutionCard />
         </CardContent>
         <CardFooter></CardFooter>
       </Card>

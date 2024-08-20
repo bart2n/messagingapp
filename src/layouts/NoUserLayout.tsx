@@ -36,7 +36,7 @@ function NoUserLayout() {
           </Link>
         </div>
       </nav>
-      <main className="h-full ">
+      <main className="h-full pt-20">
         <Outlet />
       </main>
     </div>

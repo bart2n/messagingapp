@@ -10,6 +10,8 @@ import CreateInstitution from "./pages/(institutionDashboard)/createInstitution/
 import InstitutionDetail from "./pages/(institutionDashboard)/institututionDetail/InstitutionDetail";
 import ChatComponent from "./pages/ChatComponent";
 import CreateCourse from "./pages/(institutionDashboard)/institututionDetail/forms/CreateCourse";
+import UserProfile from "./pages/(user)/userProfile/UserProfile";
+import { isUserAuthenticate } from "./lib/utils";
 function App() {
   return (
     <Router>
@@ -38,10 +40,18 @@ function App() {
             element={<CreateCourse />}
           />
           <Route path="/dashboard/chat/:roomname" element={<ChatComponent />} />
-
-
-
         </Route>
+
+        <Route
+          path="/user"
+          element={
+            isUserAuthenticate() ? <UserLoggedInLayout /> : <NoUserLayout />
+          }
+        >
+          <Route path="/user/profile/:username" element={<UserProfile />} />
+        </Route>
+
+        <Route path="*" element={<h1>Not Found</h1>} />
       </Routes>
     </Router>
   );

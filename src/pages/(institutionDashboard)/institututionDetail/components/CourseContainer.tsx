@@ -7,16 +7,18 @@ import {
 } from "@/components/ui/card";
 import { useNavigate, useParams } from "react-router-dom";
 function CourseContainer({ courses }: any) {
-  const {id} =useParams()
-  const navigate=useNavigate()
+  const { id } = useParams();
+  const navigate = useNavigate();
   return (
     <div className="flex gap-6 flex-col items-center justify-center font-kanit">
       <Card className=" w-full max-h-64 min-h-56 overfloy-y-scroll">
         <CardHeader>
           <Button
-          
-          onClick={()=>navigate(`/dashboard/institution-detail/${id}/create-course`)}
-          className="bg-primary text-white self-end">
+            onClick={() =>
+              navigate(`/dashboard/institution-detail/${id}/create-course`)
+            }
+            className="bg-primary text-white self-end"
+          >
             Kurs Oluştur
           </Button>
         </CardHeader>
@@ -29,11 +31,12 @@ function CourseContainer({ courses }: any) {
               </div>
             ))
           ) : (
-            <p>      Henüz kursunuz bulunmuyor <br />
-              oluşturmak için kurs oluştur butonuna tıklayınız</p>
-          )
-          }
-
+            <p>
+              {" "}
+              Henüz kursunuz bulunmuyor <br />
+              oluşturmak için kurs oluştur butonuna tıklayınız
+            </p>
+          )}
         </CardContent>
         <CardFooter></CardFooter>
       </Card>

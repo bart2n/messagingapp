@@ -1,6 +1,6 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import CourseContainer from "../containers/CourseContainer";
-import EmployeeContainer from "../containers/EmployeeContainer";
+import CourseContainer from "./CourseContainer";
+import EmployeeContainer from "./EmployeeContainer";
 
 function InstitutionExtensions({ courses }: any) {
   return (
