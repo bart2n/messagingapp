@@ -45,7 +45,7 @@ function UserSearchBar(props: any) {
             <CommandEmpty>No results found.</CommandEmpty>
           )}
           {searchResults?.map((user: any) => (
-            <CommandItem key={user.id}>{user.email}</CommandItem>
+            <CommandItem key={user.id}>{user.username}</CommandItem>
           ))}
         </CommandList>
       )}

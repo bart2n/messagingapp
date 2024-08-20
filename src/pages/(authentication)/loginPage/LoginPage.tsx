@@ -21,6 +21,7 @@ function LoginPage() {
       // Access ve refresh token'ları cookie'ye kaydetme
       Cookies.set("access_token", result.access, { path: "/" });
       Cookies.set("refresh_token", result.refresh, { path: "/" });
+      localStorage.setItem("username", result.username);
 
       // Başarılı girişten sonra yönlendirme
       navigate("/dashboard/institution-create");
